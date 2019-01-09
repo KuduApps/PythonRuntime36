@@ -3,11 +3,10 @@ from os import path
 
 MAJ = 3
 MIN = 6
-FOLDER_MIN = 4
 
 runtime_version_pass = sys.version_info[:2] == (MAJ, MIN)
 env_version_pass =  path.isfile(r'env\scripts\pip{0}.{1}.exe'.format(MAJ, MIN))
-env_tag_pass =  path.isfile(r'env\azure.env.python-{0}.{1}.txt'.format(MAJ, FOLDER_MIN))
+env_tag_pass =  path.isfile(r'env\azure.env.python-{0}.{1}.txt'.format(MAJ, MIN))
 test_pass = runtime_version_pass and env_version_pass and env_tag_pass
 
 def wsgi_app(environ, start_response):
